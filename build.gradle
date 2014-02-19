@@ -15,4 +15,6 @@ dependencies {
     // http://stackoverflow.com/questions/10007994/why-do-i-need-jsr305-to-use-guava-in-scala/10013226#10013226
     // I'll include this dependency in case I decide I want to use these annotations
     compile group: 'com.google.code.findbugs', name: 'jsr305', version: '2.0.3'
+
+    runtime fileTree(dir: 'libs', include: '*.jar')
 }
