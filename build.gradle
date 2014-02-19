@@ -11,7 +11,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
     // http://code.google.com/p/guava-libraries/wiki/UseGuavaInYourBuild
-    compile group: 'com.google.guava', name: 'guava', version: '12.0'
+    runtime group: 'com.google.guava', name: 'guava', version: '12.0'
     // http://stackoverflow.com/questions/10007994/why-do-i-need-jsr305-to-use-guava-in-scala/10013226#10013226
     // I'll include this dependency in case I decide I want to use these annotations
     compile group: 'com.google.code.findbugs', name: 'jsr305', version: '2.0.3'
