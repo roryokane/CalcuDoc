@@ -19,4 +19,8 @@
 *.iws
 
 
+.gradle # http://stackoverflow.com/q/17200831/578288
+
 out
+build
+production
