@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="frink-soulver:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/frink_soulver_jar</output-path>
+    <root id="archive" name="frink-soulver.jar">
+      <element id="module-output" name="frink-soulver" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/frink-2014-02-17.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.3/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-2.0.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/12.0/5bc66dd95b79db1e437eb08adba124a3e4088dc0/guava-12.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
