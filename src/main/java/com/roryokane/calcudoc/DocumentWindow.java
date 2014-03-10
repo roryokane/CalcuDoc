@@ -1,3 +1,5 @@
+package com.roryokane.calcudoc;
+
 import com.google.common.base.Joiner;
 import frink.errors.FrinkEvaluationException;
 import frink.errors.FrinkException;

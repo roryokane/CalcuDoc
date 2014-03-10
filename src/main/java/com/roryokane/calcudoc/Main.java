@@ -1,4 +1,5 @@
-import frink.errors.FrinkConversionException;
+package com.roryokane.calcudoc;
+
 import frink.parser.Frink;
 
 import javax.swing.*;
@@ -37,7 +38,7 @@ public class Main {
         item = new JMenuItem("Open…");
         item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, ActionEvent.META_MASK));
         fileMenu.add(item);
-        JMenu openRecent = new JMenu("Open Recent"); // TODO save for later and update live
+        JMenu openRecent = new JMenu("Open Recent"); // TODO save menu variable and use it to update contents as documents are opened
         fileMenu.add(openRecent);
         fileMenu.addSeparator();
         item = new JMenuItem("Save…");
