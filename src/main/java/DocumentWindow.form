@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="DocumentWindow">
+  <grid id="27dc6" binding="root" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <scrollpane id="3f14e" binding="lineNumbersScrollArea">
+        <constraints border-constraint="West"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="5548b" class="javax.swing.JTextArea" binding="lineNumbersTextArea">
+            <constraints/>
+            <properties>
+              <background color="-1184275"/>
+              <editable value="false"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <splitpane id="234d5">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <resizeWeight value="0.75"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <scrollpane id="2eba3" binding="calculationsScrollPane">
+            <constraints>
+              <splitpane position="left"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="aa86c" class="javax.swing.JTextArea" binding="calculationsTextArea">
+                <constraints/>
+                <properties/>
+              </component>
+            </children>
+          </scrollpane>
+          <scrollpane id="a00f3" binding="resultsScrollPane">
+            <constraints>
+              <splitpane position="right"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="f82a4" class="javax.swing.JTextArea" binding="resultsTextArea">
+                <constraints/>
+                <properties>
+                  <background color="-1182981"/>
+                  <editable value="false"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </splitpane>
+    </children>
+  </grid>
+</form>
