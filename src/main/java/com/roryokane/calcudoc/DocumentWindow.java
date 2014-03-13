@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.util.*;
+import java.util.concurrent.Executors;
 
 public class DocumentWindow {
     public JPanel root;
@@ -18,8 +19,15 @@ public class DocumentWindow {
     private JScrollPane lineNumbersScrollArea;
     private JScrollPane calculationsScrollPane;
     private JScrollPane resultsScrollPane;
+    private final CurrentAndNextOverwritingCommandScheduler resultsUpdateScheduler;
+    private final CurrentAndNextOverwritingCommandScheduler lineNumbersUpdateScheduler;
 
     public DocumentWindow() {
+        resultsUpdateScheduler = new CurrentAndNextOverwritingCommandScheduler();
+        lineNumbersUpdateScheduler = new CurrentAndNextOverwritingCommandScheduler();
+        Executors.newSingleThreadExecutor().execute(resultsUpdateScheduler);
+        Executors.newSingleThreadExecutor().execute(lineNumbersUpdateScheduler);
+
         calculationsTextArea.getDocument().addDocumentListener(new CalculationDocumentChangeListener());
         prefillSampleCalculations();
         updateResultsAndLineNumbers();
@@ -43,11 +51,25 @@ public class DocumentWindow {
         String lineNumbersText = Joiner.on("\n").join(lineLabels);
 
         lineNumbersTextArea.setText(lineNumbersText);
+        forceLineNumbersAreaResize();
+    }
+
+    private void forceLineNumbersAreaResize() {
+        root.updateUI();
     }
 
     private List<String> getCalculationsLines() {
-        String[] lines = getCalculationsText().split("\r\n|\r|\n");
+        String[] lines = splitStringIntoLines(getCalculationsText());
         return Arrays.asList(lines);
+    }
+
+    private String[] splitStringIntoLines(String string) {
+        return splitStringIntoLines(string, true);
+    }
+
+    private String[] splitStringIntoLines(String string, boolean allowTrailingBlankLines) {
+        final int limit = allowTrailingBlankLines ? -1 : 0;
+        return string.split("\r\n|\r|\n", limit);
     }
 
     private String getCalculationsText() {
@@ -73,8 +95,18 @@ public class DocumentWindow {
 
     private void updateResultsAndLineNumbers() {
         // TODO do in a separate thread. Register an event to be either run immediately or right after the current event (overwriting other pending similar events).
-        populateLineNumbers();
-        recalculateAllResults();
+        lineNumbersUpdateScheduler.schedule(new Runnable() {
+            @Override
+            public void run() {
+                populateLineNumbers();
+            }
+        });
+        resultsUpdateScheduler.schedule(new Runnable() {
+            @Override
+            public void run() {
+                recalculateAllResults();
+            }
+        });
     }
 
     private void recalculateAllResults() {
