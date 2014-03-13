@@ -1,13 +1,19 @@
 package com.roryokane.calcudoc;
 
-import com.google.common.base.Joiner;
-import frink.errors.FrinkEvaluationException;
+import com.google.common.base.Charsets;
+import com.google.common.io.CharStreams;
+import com.google.common.io.Closeables;
+import com.google.common.io.Files;
 import frink.errors.FrinkException;
 import frink.parser.Frink;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.*;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -33,7 +39,26 @@ public class DocumentWindow {
     }
 
     private void prefillSampleCalculations() {
-        calculationsTextArea.setText("height = 5 feet + 9 inches -> \"feet\"\npeople_in_room = 53\nsize_of_stack = height * people_in_room");
+        calculationsTextArea.setText(getDefaultCalculations());
+    }
+
+    private String getDefaultCalculations() {
+        try {
+            return readTextFileResourceAsString("introduction.calcudoc");
+        } catch (IOException e) {
+            return "";
+        }
+    }
+
+    private String readTextFileResourceAsString(String resourceName) throws IOException {
+        // written with the help of:
+        // http://stackoverflow.com/q/3861989/578288
+        // http://stackoverflow.com/a/3238954/578288
+        final InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(resourceName);
+            final InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charsets.UTF_8);
+            String contentsString = CharStreams.toString(inputStreamReader);
+            Closeables.closeQuietly(inputStream);
+            return contentsString;
     }
 
     public void focusCalculationsArea() {
@@ -47,7 +72,7 @@ public class DocumentWindow {
         for (int i = 1; i <= numLines; i++) {
             lineLabels.add(Integer.toString(i));
         }
-        String lineNumbersText = Joiner.on("\n").join(lineLabels);
+        String lineNumbersText = StringLinesConversion.joinLinesIntoString(lineLabels);
 
         lineNumbersTextArea.setText(lineNumbersText);
         forceLineNumbersAreaResize();
@@ -58,17 +83,8 @@ public class DocumentWindow {
     }
 
     private List<String> getCalculationsLines() {
-        String[] lines = splitStringIntoLines(getCalculationsText());
+        String[] lines = StringLinesConversion.splitStringIntoLines(getCalculationsText());
         return Arrays.asList(lines);
-    }
-
-    private String[] splitStringIntoLines(String string) {
-        return splitStringIntoLines(string, true);
-    }
-
-    private String[] splitStringIntoLines(String string, boolean allowTrailingBlankLines) {
-        final int limit = allowTrailingBlankLines ? -1 : 0;
-        return string.split("\r\n|\r|\n", limit);
     }
 
     private String getCalculationsText() {
@@ -123,7 +139,7 @@ public class DocumentWindow {
             resultLines.add(result);
         }
 
-        String resultsText = Joiner.on("\n").join(resultLines);
+        String resultsText = StringLinesConversion.joinLinesIntoString(resultLines);
         resultsTextArea.setText(resultsText);
     }
 }

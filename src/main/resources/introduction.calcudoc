@@ -1,0 +1,3 @@
+height = 5 feet + 9 inches -> "feet"
+people_in_room = 53
+size_of_stack = height * people_in_room
