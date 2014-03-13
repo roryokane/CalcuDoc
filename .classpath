@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/frink-soulver/src/main/java"/>
+	<classpathentry kind="src" path="/frink-soulver/src/test/java"/>
+	<classpathentry kind="src" path="/frink-soulver/src/main/resources"/>
+	<classpathentry kind="src" path="/frink-soulver/src/test/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Gradle: junit-4.11"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Gradle: hamcrest-core-1.3"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Gradle: frink-2014-02-17"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Gradle: guava-12.0"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Gradle: jsr305-2.0.3"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
