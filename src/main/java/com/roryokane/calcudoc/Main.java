@@ -60,6 +60,9 @@ public class Main {
         item = new JMenuItem("Paste");
         item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, ActionEvent.META_MASK));
         editMenu.add(item);
+        item = new JMenuItem("Select All");
+        item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.META_MASK));
+        editMenu.add(item);
         editMenu.setMnemonic(KeyEvent.VK_E);
         menuBar.add(editMenu);
 
