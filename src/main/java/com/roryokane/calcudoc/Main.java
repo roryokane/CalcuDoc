@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
 public class Main {
-    public static final Dimension DEFAULT_WINDOW_SIZE = new Dimension(500, 600);
+    public static final Dimension DEFAULT_WINDOW_SIZE = new Dimension(650, 650);
 
     public static void main(String[] args) {
         System.setProperty("apple.laf.useScreenMenuBar", "true");

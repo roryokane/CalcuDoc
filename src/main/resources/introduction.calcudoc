@@ -1,3 +1,28 @@
+// Welcome to CalcuDoc, a document-based calculator.
+// Feel free to delete these example calculations.
+
+// The answer appears in the right column.
+// It updates as you type – you never have to hit “=”.
+2+2
+
+// variables and functions
+my_age = 23
+their_age = 43
+oldest_age = max[my_age, their_age]
+
+// unit handling
 height = 5 feet + 9 inches -> "feet"
 people_in_room = 53
-size_of_stack = height * people_in_room
+size_of_person_stack = height * people_in_room
+
+// You are protected from accidentally mixing up your units.
+// This gives an error:
+//2 meters + 2 years
+
+// Advanced features:
+name = "Erin" // strings
+message = "Hello, $name!" // interpolation
+message -> Italian // convert between languages (uses Internet)
+
+// All calculations are done by the Frink programming language.
+// See http://futureboy.us/frinkdocs/ for more features of Frink.
