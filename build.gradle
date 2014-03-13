@@ -4,6 +4,7 @@ apply plugin: 'application'
 sourceCompatibility = 1.6
 version = '1.0'
 mainClassName = "com.roryokane.calcudoc.Main"
+manifest.mainAttributes("Main-Class" : "com.roryokane.calcudoc.Main")
 
 repositories {
     mavenCentral()
