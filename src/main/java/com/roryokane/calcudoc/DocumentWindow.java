@@ -117,7 +117,7 @@ public class DocumentWindow {
         lineNumbersTextArea.setEditable(false);
         lineNumbersScrollArea.setViewportView(lineNumbersTextArea);
         final JSplitPane splitPane1 = new JSplitPane();
-        splitPane1.setResizeWeight(0.75);
+        splitPane1.setResizeWeight(0.5);
         root.add(splitPane1, BorderLayout.CENTER);
         calculationsScrollPane = new JScrollPane();
         splitPane1.setLeftComponent(calculationsScrollPane);

@@ -24,7 +24,7 @@
       <splitpane id="234d5">
         <constraints border-constraint="Center"/>
         <properties>
-          <resizeWeight value="0.75"/>
+          <resizeWeight value="0.5"/>
         </properties>
         <border type="none"/>
         <children>
