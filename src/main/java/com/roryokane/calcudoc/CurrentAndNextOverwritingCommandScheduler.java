@@ -1,6 +1,11 @@
 package com.roryokane.calcudoc;
 
 public class CurrentAndNextOverwritingCommandScheduler implements Runnable {
+    // I learned that this minus the overwriting is just a Executors.newSingleThreadExecutor().
+    // TODO Make this just another Executor, or ExecutorService, or whatever, that is like that but with the special extra rule.
+    // That would hopefully allow my to get rid of my non-working wait/notify code and use some executor utilities to help instead.
+    // Though using the non-overwriting executor instead of this class is good enough for now.
+
     Runnable running = null;
     Runnable next = null;
     private boolean currentlyRunning = false;

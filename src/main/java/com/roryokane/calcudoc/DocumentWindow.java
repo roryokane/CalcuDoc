@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.util.*;
+import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class DocumentWindow {
@@ -19,14 +20,12 @@ public class DocumentWindow {
     private JScrollPane lineNumbersScrollArea;
     private JScrollPane calculationsScrollPane;
     private JScrollPane resultsScrollPane;
-    private final CurrentAndNextOverwritingCommandScheduler resultsUpdateScheduler;
-    private final CurrentAndNextOverwritingCommandScheduler lineNumbersUpdateScheduler;
+    private final Executor resultsUpdateScheduler;
+    private final Executor lineNumbersUpdateScheduler;
 
     public DocumentWindow() {
-        resultsUpdateScheduler = new CurrentAndNextOverwritingCommandScheduler();
-        lineNumbersUpdateScheduler = new CurrentAndNextOverwritingCommandScheduler();
-        Executors.newSingleThreadExecutor().execute(resultsUpdateScheduler);
-        Executors.newSingleThreadExecutor().execute(lineNumbersUpdateScheduler);
+        resultsUpdateScheduler = Executors.newSingleThreadExecutor();
+        lineNumbersUpdateScheduler = Executors.newSingleThreadExecutor();
 
         calculationsTextArea.getDocument().addDocumentListener(new CalculationDocumentChangeListener());
         prefillSampleCalculations();
@@ -95,13 +94,13 @@ public class DocumentWindow {
 
     private void updateResultsAndLineNumbers() {
         // TODO do in a separate thread. Register an event to be either run immediately or right after the current event (overwriting other pending similar events).
-        lineNumbersUpdateScheduler.schedule(new Runnable() {
+        lineNumbersUpdateScheduler.execute(new Runnable() {
             @Override
             public void run() {
                 populateLineNumbers();
             }
         });
-        resultsUpdateScheduler.schedule(new Runnable() {
+        resultsUpdateScheduler.execute(new Runnable() {
             @Override
             public void run() {
                 recalculateAllResults();
