@@ -2,6 +2,8 @@
 
 A free clone of [Soulver](http://www.acqualia.com/soulver/) built on the [Frink programming language](http://futureboy.us/frinkdocs/).
 
+This program is a calculator that shows all your calculations in a text document. Its main advantage over traditional calculators is that you don’t have to explicitly ask for the answer – it is calculated as you type. What’s more, calculations are performed using the powerful [Frink](http://futureboy.us/frinkdocs/) calculation and programming language, which is free to include as a library in other programs. Frink allows calculations to easily keep track of units and prevent you from making conversion errors, comes with built-in constants, and even contains programming constructs like loops and defining your own functions for advanced users.
+
 ## Compiling and running
 
 This Java program was written using the free [IntelliJ IDEA](http://www.jetbrains.com/idea/) IDE. It compiles and runs successfully from within the IDE.
