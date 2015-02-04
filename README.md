@@ -1,8 +1,12 @@
 # CalcuDoc
 
-A free clone of [Soulver](http://www.acqualia.com/soulver/) built on the [Frink programming language](http://futureboy.us/frinkdocs/).
+A free clone of [Soulver](http://www.acqualia.com/soulver/), built on the [Frink programming language](http://futureboy.us/frinkdocs/).
+
+![Main window with sample calculations](screenshots/main window with sample calculations.png)
 
 This program is a calculator that shows all your calculations in a text document. Its main advantage over traditional calculators is that you don’t have to explicitly ask for the answer – it is calculated as you type. What’s more, calculations are performed using the powerful [Frink](http://futureboy.us/frinkdocs/) calculation and programming language, which is free to include as a library in other programs. Frink allows calculations to easily keep track of units and prevent you from making conversion errors, comes with built-in constants, and even contains programming constructs like loops and defining your own functions for advanced users.
+
+For more information, see the [About CalcuDoc](https://github.com/roryokane/CalcuDoc/wiki/About-CalcuDoc) wiki page, which was written as my final report for the class I wrote this program for, CS 388 Graphical User Interfaces. You can also watch a [1-minute video demonstration on YouTube](http://youtu.be/Yw_RsvvoU-c).
 
 ## Compiling and running
 
@@ -19,6 +23,8 @@ The Frink language is included as a JAR file library in the libs folder and need
 The main window is fully functional. The calculator supports every feature of the Frink programming language. And it updates the results live as you type.
 
 Note that calculations happen in a separate thread from the UI thread, so you can type as fast as you want without having to wait for the results to appear between keystrokes.
+
+### Missing features
 
 None of the menu items are currently functional. For example, I did not implement saving and loading of files; you must copy and paste calculations into a text file yourself.
 
