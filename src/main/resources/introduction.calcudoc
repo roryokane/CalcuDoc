@@ -11,7 +11,7 @@ their_age = 43
 oldest_age = max[my_age, their_age]
 
 // unit handling
-height = 5 feet + 9 inches -> "feet"
+(height = 5 feet + 9 inches) -> "feet"
 people_in_room = 53
 size_of_person_stack = height * people_in_room
 
