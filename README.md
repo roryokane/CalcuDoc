@@ -2,7 +2,7 @@
 
 A free clone of [Soulver](http://www.acqualia.com/soulver/), built on the [Frink programming language](http://futureboy.us/frinkdocs/).
 
-![Main window with sample calculations](screenshots/main window with sample calculations.png)
+![Main window with sample calculations](screenshots/main%20window%20with%20sample%20calculations.png)
 
 This program is a calculator that shows all your calculations in a text document. Its main advantage over traditional calculators is that you don’t have to explicitly ask for the answer – it is calculated as you type. What’s more, calculations are performed using the powerful [Frink](http://futureboy.us/frinkdocs/) calculation and programming language, which is free to include as a library in other programs. Frink allows calculations to easily keep track of units and prevent you from making conversion errors, comes with built-in constants, and even contains programming constructs like loops and defining your own functions for advanced users.
 
